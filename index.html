@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Welcome to Dance Studio</title>
+    <link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet">
+
+    <style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: white;
+        background-size: cover;
+        background-position: center;
+    }
+
+    h1 {
+        position: relative;
+        font-family: 'Dancing Script', cursive;
+        text-align: left;
+        left: 20px;
+        animation: slideIn 1s ease-in-out infinite alternate;
+    }
+
+    @keyframes slideIn {
+        0% {
+            transform: translateX(-10px);
+        }
+        100% {
+            transform: translateX(40px);
+        }
+    }
+
+    form {
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    label {
+        font-weight: bold;
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    input[type="text"] {
+    padding: 10px;
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #f2f2f2;
+    margin-bottom: 10px; /* Add margin-bottom */
+}
+
+
+    button[type="submit"] {
+        padding: 8px 15px;
+        background-color: black;
+        color: white;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    button[type="submit"]:hover {
+        background-color: black;
+    }
+
+    video {
+        display: block;
+        margin: 20px auto;
+        width: 100%;
+        max-width: 600px;
+    }
+
+    p {
+        text-align: center;
+        color: #888;
+        font-style: italic;
+    }
+
+    .header-styling {
+        background-color: #333;
+        color: purple;
+    }
+
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        height: 70px;
+        background-color: white;
+        margin-bottom: 20px;
+    }
+
+    .logo {
+        max-width: 200px;
+        max-height: 100px;
+        height: auto;
+        background-color: black;
+        color: black;
+        border-radius: 50%;
+        margin: 0;
+        /* Remove the margin */
+        box-sizing: border-box;
+    }
+
+    .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .text-words {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-left: 20px;
+    }
+
+    .text-words h1 {
+        margin: 0;
+    }
+
+    .gif-container {
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 20px;
+        max-width: 100%;
+        /* Adjust the max-width as needed */
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        /* Center the GIF horizontally */
+        align-items: center;
+        /* Center the GIF vertically */
+    }
+
+    .gif {
+        height: 200px;
+        width: 100%;
+        /* Set the width to 100% to fit the container */
+        padding: 10px 20px;
+        background-color: black;
+        color: white;
+        border: none;
+        border-radius: 50%;
+        margin: 0;
+        /* Remove the margin */
+        box-sizing: border-box;
+        /* Include padding in the total width */
+    }
+
+    .buttons-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 20px;
+    }
+
+    .new-button {
+        margin: 10px 380px;
+        padding: 10px 20px;
+        background-color: black;
+        color: white;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        width: 180px;
+    }
+
+    .new-button:hover {
+        background-color: #ffc72c;
+    }
+
+    .text-words span {
+        margin-right: 10px;
+    }
+
+    .form-container {
+        margin-top: 50px;
+        text-align: center;
+        background-color: #333;
+        color: white;
+        padding: 20px;
+    }
+
+    .video {
+        background-color: #333;
+        color: white;
+        padding: 30px;
+    }
+
+    .header-button {
+        padding: 10px 20px;
+        background-color: black;
+        color: white;
+        border: none;
+        border-radius: 3px;
+        margin-left: 10px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .header-button:hover {
+        background-color: #ffc72c;
+    }
+
+    .enhanced-button:hover {
+        background-color: #ffc72c;
+        transform: scale(1.1);
+    }
+
+    .popup-container {
+        display: none;
+        position: fixed;
+        z-index: 9999;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.4);
+    }
+
+    .popup {
+        background-color: #333;
+        color: white;
+        padding: 40px;
+        width: 90%;
+        max-width: 700px;
+        margin: auto;
+        margin-top: 10%;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    }
+.close-button {
+    margin: 10px 580px;
+    padding: 10px 20px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 180px;
+}
+
+
+.close-button:hover {
+    transform: scale(1.2);
+}
+  #preferencePopupContainer {
+        display: none;
+    }
+
+    #preferencePopupContainer .popup {
+        padding: 20px;
+    }
+
+    #preferencePopupContainer .popup h2 {
+        margin-bottom: 20px;
+    }
+
+    #preferencePopupContainer .popup label {
+        display: block;
+        margin-bottom: 10px;
+        color: #fff;
+    }
+
+    #preferencePopupContainer .popup input[type="text"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+    }
+
+    #preferencePopupContainer .popup button[type="submit"] {
+        width: auto;
+        padding: 10px 20px;
+    }
+
+
+</style>
+</head>
+<body>
+    <header class="header-styling">
+        <div class="logo-container">
+            <img src="{{ url_for('static', filename='images/Logo.jpg') }}" alt="Image" class="logo">
+        </div>
+        <div>
+            <button class="header-button enhanced-button">News and Blog</button>
+            <button class="header-button enhanced-button">About</button>
+            <button class="header-button enhanced-button">Button 3</button>
+        </div>
+    </header>
+    <div class="container">
+        <div class="text-words">
+            <h1>BEST</h1>
+            <h1>DANCE</h1>
+            <h1>STUDIO</h1>
+        </div>
+         <div class="buttons-container">
+            <input type="hidden" id="danceStyle" value="">
+            <button type="button" class="new-button enhanced-button" onclick="selectDanceStyle('Bollywood')">Bollywood</button>
+            <button type="button" class="new-button enhanced-button" onclick="selectDanceStyle('Hip Hop')">Hip Hop</button>
+            <button type="button" class="new-button enhanced-button" onclick="selectDanceStyle('Contemporary')">Contemporary</button>
+    </div>
+        <div class="gif-container">
+            <img src="{{ url_for('static', filename='images/movinglogo.gif') }}" alt="GIF" class="gif">
+        </div>
+    </div>
+        <div class="popup-container" id="popupContainer">
+        <div class="popup">
+            <h2>Select Difficulty</h2>
+            <span class="close-button" onclick="closePopup()">&times;</span>
+            <form id="dancelevelForm">
+                <input type="hidden" id="danceLevel" value="">
+                <button type="button" class="new-button enhanced-button" onclick="selectDanceLevel('easy')">Easy</button>
+                <button type="button" class="new-button enhanced-button" onclick="selectDanceLevel('medium')">Medium</button>
+                <button type="button" class="new-button enhanced-button" onclick="selectDanceLevel('hard')">Advanced</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="popup-container" id="preferencePopupContainer">
+        <div class="popup">
+            <h2>Customization Form</h2>
+             <span class="close-button" onclick="closePreferencePopup()">&times;</span>
+            <form method="POST" action="/" onsubmit="setDanceStyle()">
+                <p>The selected dance style is: <span id="selectedDanceStyle"></span></p>
+                <p>The selected dance Level is: <span id="selectedDanceLevel"></span></p>
+                <label for="customize">Customization:</label>
+                <input type="text" id="customize" name="customize" required>
+                
+                <label for="duration">Duration (in minutes):</label>
+                <input type="text" id="duration" name="duration" required>
+
+                <label for="audio">Enter the Audio name you want:</label>
+                <input type="text" id="audio" name="audio" >
+                
+               <label for="word_to_find">Select a Key Moment:</label>
+                <select id="word_to_find" name="word_to_find" required>
+                    <option value="" disabled selected>Select a Key Moment</option>
+                    <option value="feet">Basic steps</option>
+                    <option value="moment2">Shake</option>
+                    <option value="moment3">Jump</option>
+                    <option value="moment4">Flag position</option>
+                    <option value="moment5">cross over</option>
+                    <option value="moment6">Hip</option>
+                    <option value="moment7">Walk</option>
+                     <option value="moment8">Criss cross</option>
+                     <option value="moment9">Shimmy</option>
+                     <option value="moment10">Jazz hands</option>
+                     <option value="moment11">Spins</option>
+                     
+                    
+                    <!-- Add more options as needed -->
+                </select>
+               <br>
+               <br>
+               <br>
+                
+                <button type="submit" class="header-button enhanced-button">Search</button>
+            </form>
+        
+        </div>
+    </div>
+    
+    <div class="video">
+            {% if video_src %}
+            <video src="{{ video_src }}" controls></video>
+            {% else %}
+            <p>No video available.</p>
+            {% endif %}
+   </div>
+   
+
+    <script>
+        function openPopup() {
+            document.getElementById("popupContainer").style.display = "flex";
+        }
+
+        function closePopup() {
+            document.getElementById("popupContainer").style.display = "none";
+        }
+
+        function openPreferencePopup(difficulty) {
+            document.getElementById("popupContainer").style.display = "none";
+            document.getElementById("preferencePopupContainer").style.display = "flex";
+        }
+
+        function closePreferencePopup() {
+            document.getElementById("preferencePopupContainer").style.display = "none";
+        }
+        function selectDanceStyle(danceStyle) {
+            document.getElementById('danceStyle').value = danceStyle;
+            openPopup();
+            return false;
+        }
+        function selectDanceLevel(danceLevel) {
+            document.getElementById('danceLevel').value = danceLevel;
+            submitForm();
+            
+            openPreferencePopup(danceLevel);
+            return false;
+        }
+        function submitForm() {
+            var danceStyle = document.getElementById("danceStyle").value;
+            var danceLevel = document.getElementById("danceLevel").value;
+        
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "/", true);
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    console.log(xhr.responseText);
+                }
+            };
+            document.getElementById('danceStyle').value = danceStyle;
+            document.getElementById('danceLevel').value = danceLevel;
+            document.getElementById('selectedDanceStyle').textContent = danceStyle;
+            document.getElementById('selectedDanceLevel').textContent = danceLevel;
+            var data = "danceStyle=" + encodeURIComponent(danceStyle) + "&danceLevel=" + encodeURIComponent(danceLevel);
+            xhr.send(data);
+        }
+        function setDanceStyle() {
+            var danceStyle = document.getElementById("selectedDanceStyle").textContent;
+            var danceStyleInput = document.createElement("input");
+            danceStyleInput.setAttribute("type", "hidden");
+            danceStyleInput.setAttribute("name", "danceStyleInput");
+            danceStyleInput.setAttribute("value", danceStyle);
+            document.getElementById("selectedDanceStyle").appendChild(danceStyleInput);
+             var danceLevel = document.getElementById("selectedDanceLevel").textContent;
+             var danceLevelInput = document.createElement("input");
+             danceLevelInput.setAttribute("type", "hidden");
+             danceLevelInput.setAttribute("name", "danceLevelInput");
+             danceLevelInput.setAttribute("value", danceLevel);
+             document.getElementById("selectedDanceLevel").appendChild(danceLevelInput);
+        }
+         
+    </script>
+</body>
+</html>
+     
